@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+ <img width="300" src="..//assets/image/validation.jpg"/>
+</div>
+
+<form [formGroup]="nameForm">
+
+<p class="txt" *ngIf="!nameForm.valid">*Required</p>
+FirstName:<br>
+<input formControlName="name"  >
+<br>
+
+<p class="txt" *ngIf="!nameForm.valid">*Required</p>
+Surname:<br>
+<input formControlName="surname"  >
+<br>
+
+<p class="txt" *ngIf="!nameForm.valid">*Required</p>
+Age:<br>
+<input type="number"  formControlName="age" maxlength="2" >
+<br>
+
+<p class="txt" *ngIf="!nameForm.valid">*Required</p>
+EmailAddress:<br>
+<input type="email" formControlName="email"  >
+<br>
+
+<p class="txt" *ngIf="!nameForm.valid">*Required</p>
+CellNumber:<br>
+<input type="tel" maxlength="10" formControlName="cellnumber" >
+
+<br>
+
+<button (click)="adduser()" [disabled]="!nameForm.valid">Send</button>
+<br>
+</form>
+
+<p *ngFor="let regist of register">
+    {{regist.myname}}<br>
+    {{regist.mysurname}}<br>
+    {{regist.myage}}<br>
+    {{regist.myemail}}<br>
+    {{regist.mynumber}}<br>
+</p>
+
+<router-outlet></router-outlet>
